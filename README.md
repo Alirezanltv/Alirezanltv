@@ -1,6 +1,7 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Alirezanltv/Alirezanltv/main/assets/alireza-circle.png" width="200" alt="Alireza Kanani" />
+  <img src="white_shirt.jpeg" alt="Alireza Kanani Banner" style="max-width:100%; border-radius: 10px;" />
 </p>
+
 
 
 
