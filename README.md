@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="white_shirt.jpeg" alt="Alireza Kanani Banner" style="max-width:60%; border-radius: 10px;" />
+  <img src="white_shirt.jpeg" alt="Alireza Kanani Banner" style="max-width:60%; border-radius: 5px;" />
 </p>
 
 
