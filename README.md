@@ -1,13 +1,7 @@
 <p align="center">
-  <img src="white_shirt.jpeg" alt="Alireza Kanani" width="200" height="200">
+  <img src="https://raw.githubusercontent.com/Alirezanltv/Alirezanltv/main/assets/alireza-circle.png" width="200" alt="Alireza Kanani" />
 </p>
 
-<style>
-  img[alt="Alireza Kanani"] {
-    border-radius: 50%;
-    object-fit: cover;
-  }
-</style>
 
 
 
