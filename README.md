@@ -68,9 +68,9 @@ Vision Transformer(ViT)
 ---
 
 ### 📫 Let’s Connect
-- ✉️ kanani.kh.nasir@email.kntu.ac.ir  
+- ✉️ alirezakanani.project@gmail.com   
 - 🔗 [LinkedIn](https://www.linkedin.com/in/alireza-kanani-b7323b1bb)  
-- 🚀 Open to collaborations in AI, CV & embedded vision!
+- 🚀 Open to collaborations in AI, CV & embedded systems!
 
 ---
 
