@@ -1,6 +1,14 @@
 <p align="center">
-  <img src="white_shirt.jpeg" alt="Alireza Kanani" width="200" height="200" style="border-radius: 50%; object-fit: cover;" />
+  <img src="white_shirt.jpeg" alt="Alireza Kanani" width="200" height="200">
 </p>
+
+<style>
+  img[alt="Alireza Kanani"] {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+</style>
+
 
 
 
