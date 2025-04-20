@@ -1,6 +1,7 @@
 <p align="center">
-  <img src="white_shirt.jpeg" alt="Alireza Kanani Banner" style="max-width:100%; border-radius: 10px;" />
+  <img src="white_shirt.jpeg" alt="Alireza Kanani" width="180" height="180" style="border-radius: 50%; object-fit: cover; border: 4px solid #4AF626;" />
 </p>
+
 
 <h1 align="center">👋 Hi, I’m Alireza Kanani</h1>
 
