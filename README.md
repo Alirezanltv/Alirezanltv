@@ -15,17 +15,20 @@
 ---
 
 ### 🔭 I’m currently working on
-- 🐦 **Lock_on_detected_object**:  
-  Stable bird tracker with YOLOv8 & custom BYTETracker → [Repo](https://github.com/Alirezanltv/Lock_on_detected_object)
+
 - 🤖 Deploying real‐time vision pipelines on NVIDIA Jetson (Nano, Xavier, Orin)
 
 ---
 
+- **Machine Learning Frameworks & Libraries**  TensorFlow, Keras, PyTorch, CUDA (GPU Programming),
+ONNX, TensorRT, OpenVINO, YOLO, GroundingDINO,
+Huggingface, GStreamer, DeepStream, GST-shark,
+OpenCV, Scikit-learn, SciPy, Mediapipe,
+Vision Transformer(ViT)
+- **Embedded Systems**: Jetson Nano, Jetson Xavier NX, Jetson Orin Nano
 ### 🌱 My Passions
-- **Computer Vision**: Object detection, tracking, super‑resolution  
-- **Deep Learning**: CNNs, GANs, Transformers, Autoencoders  
-- **Embedded Systems**: GStreamer, DeepStream SDK, CUDA  
-- **Signal & Image Processing**: Defect detection, OCR, remote sensing  
+- **Computer Vision**: Object detection & tracking, Unsupervised learning, Human robot interaction
+ 
 
 ---
 
