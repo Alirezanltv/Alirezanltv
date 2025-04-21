@@ -7,51 +7,38 @@
 
 ```mermaid
 flowchart LR
-    %% Common input
-    Raw[Raw Images]
+  %% === Nodes ===
+  RawImages["Raw Images"]
+  
+  %% Classification branch
+  RawImages --> CLIP["Zero‑Shot (CLIP)"]
+  CLIP       --> ClassOut["Images & Class IDs"]
+  ClassOut   --> FTClass["Fine‑Tune Classifier<br/>(e.g., ResNet‑18)"]
+  
+  %% Segmentation branch
+  RawImages --> SAM["Zero‑Shot (SAM)"]
+  SAM        --> SegOut["Images & Ground Truth"]
+  SegOut     --> FTSeg["Fine‑Tune Segmentation Network"]
+  
+  %% Object Detection branch
+  RawImages --> DINO["Grounding DINO"]
+  DINO       --> DetOut["Images & Labels"]
+  DetOut     --> FTDet["Fine‑Tune Model<br/>(e.g., YOLO)"]
+  FTDet      --> Deploy["Deployment"]
+  Deploy     --> OpenVINO["OpenVINO<br/>(CPU)"]
+  Deploy     --> TensorRT["TensorRT<br/>(GPU)"]
+  
+  %% === Styling ===
+  classDef raw  fill:#f0f4f8,stroke:#333,stroke-width:1px;
+  classDef cls  fill:#d6e9fe,stroke:#333,stroke-width:1px;
+  classDef seg  fill:#e8f6e8,stroke:#333,stroke-width:1px;
+  classDef det  fill:#fdebd0,stroke:#333,stroke-width:1px;
+  
+  class RawImages raw;
+  class CLIP,ClassOut,FTClass cls;
+  class SAM,SegOut,FTSeg seg;
+  class DINO,DetOut,FTDet,Deploy,OpenVINO,TensorRT det;
 
-    %% Classification branch
-    subgraph Classification
-      direction TB
-      CLIP[Zero‑Shot (CLIP)]
-      ClassOut[Images & Class IDs]
-      FTClass[Fine‑Tune Classifier<br/>(e.g., ResNet‑18)]
-      Raw --> CLIP --> ClassOut --> FTClass
-    end
-
-    %% Segmentation branch
-    subgraph Segmentation
-      direction TB
-      SAM[Zero‑Shot (SAM)]
-      SegOut[Images & Ground Truth]
-      FTSeg[Fine‑Tune Segmentation Network]
-      Raw --> SAM --> SegOut --> FTSeg
-    end
-
-    %% Object Detection branch
-    subgraph Object_Detection["Object Detection"]
-      direction TB
-      DINO[Grounding DINO]
-      DetOut[Images & Labels]
-      FTDet[Fine‑Tune Model<br/>(e.g., YOLO)]
-      Deploy[Deployment]
-      OpenVINO[OpenVINO<br/>(CPU)]
-      TensorRT[TensorRT<br/>(GPU)]
-      Raw --> DINO --> DetOut --> FTDet --> Deploy
-      Deploy --> OpenVINO
-      Deploy --> TensorRT
-    end
-
-    %% Styling
-    classDef rawNode    fill:#f0f4f8,stroke:#333,stroke-width:1px;
-    classDef clsNode    fill:#d6e9fe,stroke:#333;
-    classDef segNode    fill:#e8f6e8,stroke:#333;
-    classDef detNode    fill:#fdebd0,stroke:#333;
-
-    class Raw rawNode;
-    class CLIP,ClassOut,FTClass clsNode;
-    class SAM,SegOut,FTSeg segNode;
-    class DINO,DetOut,FTDet,Deploy,OpenVINO,TensorRT detNode;
 
 
 
