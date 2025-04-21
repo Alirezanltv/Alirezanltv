@@ -4,7 +4,7 @@
 
 ### 🔍 Computer Vision Tasks Workflow
 
-graph TD
+flowchart TD
     RawImages[Raw Images]
 
     subgraph Classification
@@ -21,7 +21,7 @@ graph TD
         RawImages --> SAM --> SegOut --> FTSeg
     end
 
-    subgraph Object Detection
+    subgraph Object_Detection
         DINO[Grounding DINO]
         DetOut[Images & Labels]
         FTDet[Fine-Tune Model (e.g., YOLO)]
@@ -32,8 +32,6 @@ graph TD
         Deploy --> OpenVINO
         Deploy --> TensorRT
     end
-
-
 
 
 
