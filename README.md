@@ -4,7 +4,6 @@
 
 ### 🔍 Computer Vision Tasks Workflow
 
-
 ```mermaid
 flowchart LR
   %% === Input ===
