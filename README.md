@@ -4,34 +4,44 @@
 
 ### 🔍 Computer Vision Tasks Workflow
 
-flowchart TD
-    RawImages[Raw Images]
-
-    subgraph Classification
-        CLIP[Zero-Shot CLIP]
-        ClassOut[Images & Class IDs]
-        FTClass[Fine-Tune Classifier (e.g., ResNet-18)]
-        RawImages --> CLIP --> ClassOut --> FTClass
-    end
-
-    subgraph Segmentation
-        SAM[Zero-Shot SAM]
-        SegOut[Images & Ground Truth]
-        FTSeg[Fine-Tune Segmentation Network]
-        RawImages --> SAM --> SegOut --> FTSeg
-    end
+flowchart TB
+    RawImages([Raw Images]):::input
 
     subgraph Object_Detection
-        DINO[Grounding DINO]
-        DetOut[Images & Labels]
-        FTDet[Fine-Tune Model (e.g., YOLO)]
-        Deploy[Deployment]
-        OpenVINO[OpenVINO (CPU)]
-        TensorRT[TensorRT (GPU)]
+        direction LR
+        DINO([Zero-Shot Grounding DINO]):::zero_shot
+        DetOut([Images and Labels]):::output
+        FTDet([Fine-Tune Model - e.g. YOLO]):::processing
+        Deploy([Deployment]):::deployment
+        OpenVINO([OpenVINO - CPU base]):::deployment
+        TensorRT([TensorRT - GPU base]):::deployment
         RawImages --> DINO --> DetOut --> FTDet --> Deploy
         Deploy --> OpenVINO
         Deploy --> TensorRT
     end
+
+    subgraph Classification
+        direction LR
+        CLIP([Zero-Shot CLIP]):::zero_shot
+        ClassOut([Images and Class IDs]):::output
+        FTClass([Fine-Tune Classifier - e.g. ResNet-18]):::processing
+        RawImages --> CLIP --> ClassOut --> FTClass
+    end
+
+    subgraph Segmentation
+        direction LR
+        SAM([Zero-Shot SAM]):::zero_shot
+        SegOut([Images and Ground Truth]):::output
+        FTSeg([Fine-Tune Segmentation Network]):::processing
+        RawImages --> SAM --> SegOut --> FTSeg
+    end
+
+    classDef input fill:#e0f7fa,stroke:#004d40,stroke-width:2px;
+    classDef processing fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
+    classDef zero_shot fill:#fffde7,stroke:#f9a825,stroke-width:2px,stroke-dasharray: 5 5;
+    classDef output fill:#fce4ec,stroke:#880e4f,stroke-width:2px;
+    classDef deployment fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px;
+
 
 
 
