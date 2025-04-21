@@ -3,18 +3,56 @@
 </p>
 
 ### 🔍 Computer Vision Tasks Workflow
-graph TD
-    A[Raw Images] -->|Grounding DINO| B[Images with Labels]
-    B -->|Fine-Tune Model| C[YOLO or other models]
-    C -->|Deploy| D{Deployment Options}
-    D -->|CPU-based| E[OpenVINO]
-    D -->|GPU-based| F[TensoRT]
 
-    A -->|CLIP| G[Images with Class ID]
-    G -->|Fine-Tune Classifier| H[ResNet18 or other models]
 
-    A -->|SAM| I[Images with Ground Truth]
-    I -->|Fine-Tune| J[Segmentation Network]
+```mermaid
+flowchart LR
+  %% === Input ===
+  RawImages["Raw Images"]
+
+  %% === Classification ===
+  subgraph Classification
+    direction TB
+    CLIP["Zero‑Shot (CLIP)"]
+    ClassOut["Images & Class IDs"]
+    FTClass["Fine‑Tune Classifier\n(e.g., ResNet‑18)"]
+    RawImages --> CLIP --> ClassOut --> FTClass
+  end
+
+  %% === Segmentation ===
+  subgraph Segmentation
+    direction TB
+    SAM["Zero‑Shot (SAM)"]
+    SegOut["Images & Ground Truth"]
+    FTSeg["Fine‑Tune Segmentation Network"]
+    RawImages --> SAM --> SegOut --> FTSeg
+  end
+
+  %% === Object Detection ===
+  subgraph Object_Detection["Object Detection"]
+    direction TB
+    DINO["Grounding DINO"]
+    DetOut["Images & Labels"]
+    FTDet["Fine‑Tune Model\n(e.g., YOLO)"]
+    Deploy["Deployment"]
+    OpenVINO["OpenVINO\n(CPU)"]
+    TensorRT["TensorRT\n(GPU)"]
+    RawImages --> DINO --> DetOut --> FTDet --> Deploy
+    Deploy --> OpenVINO
+    Deploy --> TensorRT
+  end
+
+  %% === Styling ===
+  classDef raw  fill:#f0f4f8,stroke:#333,stroke-width:1px;
+  classDef cls  fill:#d6e9fe,stroke:#333,stroke-width:1px;
+  classDef seg  fill:#e8f6e8,stroke:#333,stroke-width:1px;
+  classDef det  fill:#fdebd0,stroke:#333,stroke-width:1px;
+
+  class RawImages raw;
+  class CLIP,ClassOut,FTClass cls;
+  class SAM,SegOut,FTSeg seg;
+  class DINO,DetOut,FTDet,Deploy,OpenVINO,TensorRT det;
+
 
 
 
