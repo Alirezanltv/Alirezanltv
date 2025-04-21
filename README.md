@@ -4,25 +4,24 @@
 
 ### 🔍 Computer Vision Tasks Workflow
 
-```mermaid
-flowchart TD
+graph TD
     RawImages[Raw Images]
 
     subgraph Classification
-        CLIP[Zero-Shot (CLIP)]
+        CLIP[Zero-Shot CLIP]
         ClassOut[Images & Class IDs]
         FTClass[Fine-Tune Classifier (e.g., ResNet-18)]
         RawImages --> CLIP --> ClassOut --> FTClass
     end
 
     subgraph Segmentation
-        SAM[Zero-Shot (SAM)]
+        SAM[Zero-Shot SAM]
         SegOut[Images & Ground Truth]
         FTSeg[Fine-Tune Segmentation Network]
         RawImages --> SAM --> SegOut --> FTSeg
     end
 
-    subgraph Object_Detection
+    subgraph Object Detection
         DINO[Grounding DINO]
         DetOut[Images & Labels]
         FTDet[Fine-Tune Model (e.g., YOLO)]
