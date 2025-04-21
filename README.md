@@ -23,6 +23,7 @@
 ### 🔭 I’m currently working on
 
 - 🤖 Deploying real‐time vision pipelines on NVIDIA Jetson (Nano, Xavier, Orin)
+- 🤖 Developing and deploying trading bot pipeline.
 
 ---
 
