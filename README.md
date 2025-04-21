@@ -2,40 +2,7 @@
   <img src="white_shirt.jpeg" alt="Alireza Kanani Banner" style="max-width:100%; border-radius: 10px; width="550" height="450" " />
 </p>
 
-### 🔍 Computer Vision Tasks Workflow
-flowchart TB
-    RawImages([Raw Images]):::input
-    subgraph Object_Detection direction LR
-        DINO([Zero-Shot Grounding DINO]):::zero_shot
-        DetOut([Images and Labels]):::output
-        FTDet([Fine-Tune Model - e.g. YOLO]):::processing
-        Deploy([Deployment]):::deployment
-        OpenVINO([OpenVINO - CPU base]):::deployment
-        TensorRT([TensorRT - GPU base]):::deployment
-        RawImages --> DINO --> DetOut --> FTDet --> Deploy
-        Deploy --> OpenVINO
-        Deploy --> TensorRT
-    end
-    
-    subgraph Classification direction LR
-        CLIP([Zero-Shot CLIP]):::zero_shot
-        ClassOut([Images and Class IDs]):::output
-        FTClass([Fine-Tune Classifier - e.g. ResNet-18]):::processing
-        RawImages --> CLIP --> ClassOut --> FTClass
-    end
-    
-    subgraph Segmentation direction LR
-        SAM([Zero-Shot SAM]):::zero_shot
-        SegOut([Images and Ground Truth]):::output
-        FTSeg([Fine-Tune Segmentation Network]):::processing
-        RawImages --> SAM --> SegOut --> FTSeg
-    end
 
-    classDef input fill:#e0f7fa,stroke:#004d40,stroke-width:2px;
-    classDef processing fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
-    classDef zero_shot fill:#fffde7,stroke:#f9a825,stroke-width:2px,stroke-dasharray: 5 5;
-    classDef output fill:#fce4ec,stroke:#880e4f,stroke-width:2px;
-    classDef deployment fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px;
 
 
 
