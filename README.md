@@ -3,12 +3,9 @@
 </p>
 
 ### 🔍 Computer Vision Tasks Workflow
-
 flowchart TB
     RawImages([Raw Images]):::input
-
-    subgraph Object_Detection
-        direction LR
+    subgraph Object_Detection direction LR
         DINO([Zero-Shot Grounding DINO]):::zero_shot
         DetOut([Images and Labels]):::output
         FTDet([Fine-Tune Model - e.g. YOLO]):::processing
@@ -19,17 +16,15 @@ flowchart TB
         Deploy --> OpenVINO
         Deploy --> TensorRT
     end
-
-    subgraph Classification
-        direction LR
+    
+    subgraph Classification direction LR
         CLIP([Zero-Shot CLIP]):::zero_shot
         ClassOut([Images and Class IDs]):::output
         FTClass([Fine-Tune Classifier - e.g. ResNet-18]):::processing
         RawImages --> CLIP --> ClassOut --> FTClass
     end
-
-    subgraph Segmentation
-        direction LR
+    
+    subgraph Segmentation direction LR
         SAM([Zero-Shot SAM]):::zero_shot
         SegOut([Images and Ground Truth]):::output
         FTSeg([Fine-Tune Segmentation Network]):::processing
@@ -41,7 +36,6 @@ flowchart TB
     classDef zero_shot fill:#fffde7,stroke:#f9a825,stroke-width:2px,stroke-dasharray: 5 5;
     classDef output fill:#fce4ec,stroke:#880e4f,stroke-width:2px;
     classDef deployment fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px;
-
 
 
 
