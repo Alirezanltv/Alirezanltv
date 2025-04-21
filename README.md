@@ -3,7 +3,18 @@
 </p>
 
 ### 🔍 Computer Vision Tasks Workflow
+graph TD
+    A[Raw Images] -->|Grounding DINO| B[Images with Labels]
+    B -->|Fine-Tune Model| C[YOLO or other models]
+    C -->|Deploy| D{Deployment Options}
+    D -->|CPU-based| E[OpenVINO]
+    D -->|GPU-based| F[TensoRT]
 
+    A -->|CLIP| G[Images with Class ID]
+    G -->|Fine-Tune Classifier| H[ResNet18 or other models]
+
+    A -->|SAM| I[Images with Ground Truth]
+    I -->|Fine-Tune| J[Segmentation Network]
 
 
 
