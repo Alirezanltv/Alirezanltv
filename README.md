@@ -2,42 +2,52 @@
   <img src="white_shirt.jpeg" alt="Alireza Kanani Banner" style="max-width:100%; border-radius: 10px; width="550" height="450" " />
 </p>
 
-
-### 🔍 Computer Vision Tasks Workflow
-
-```mermaid
 flowchart LR
-  %% === Nodes ===
-  RawImages["Raw Images"]
-  
-  %% Classification branch
-  RawImages --> CLIP["Zero‑Shot (CLIP)"]
-  CLIP       --> ClassOut["Images & Class IDs"]
-  ClassOut   --> FTClass["Fine‑Tune Classifier<br/>(e.g., ResNet‑18)"]
-  
-  %% Segmentation branch
-  RawImages --> SAM["Zero‑Shot (SAM)"]
-  SAM        --> SegOut["Images & Ground Truth"]
-  SegOut     --> FTSeg["Fine‑Tune Segmentation Network"]
-  
-  %% Object Detection branch
-  RawImages --> DINO["Grounding DINO"]
-  DINO       --> DetOut["Images & Labels"]
-  DetOut     --> FTDet["Fine‑Tune Model<br/>(e.g., YOLO)"]
-  FTDet      --> Deploy["Deployment"]
-  Deploy     --> OpenVINO["OpenVINO<br/>(CPU)"]
-  Deploy     --> TensorRT["TensorRT<br/>(GPU)"]
-  
-  %% === Styling ===
-  classDef raw  fill:#f0f4f8,stroke:#333,stroke-width:1px;
-  classDef cls  fill:#d6e9fe,stroke:#333,stroke-width:1px;
-  classDef seg  fill:#e8f6e8,stroke:#333,stroke-width:1px;
-  classDef det  fill:#fdebd0,stroke:#333,stroke-width:1px;
-  
-  class RawImages raw;
-  class CLIP,ClassOut,FTClass cls;
-  class SAM,SegOut,FTSeg seg;
-  class DINO,DetOut,FTDet,Deploy,OpenVINO,TensorRT det;
+    %% === Input ===
+    RawImages["Raw Images"]
+
+    %% === Classification ===
+    subgraph Classification
+      direction TB
+      CLIP["Zero‑Shot (CLIP)"]
+      ClassOut["Images & Class IDs"]
+      FTClass["Fine‑Tune Classifier\n(e.g., ResNet‑18)"]
+      RawImages --> CLIP --> ClassOut --> FTClass
+    end
+
+    %% === Segmentation ===
+    subgraph Segmentation
+      direction TB
+      SAM["Zero‑Shot (SAM)"]
+      SegOut["Images & Ground Truth"]
+      FTSeg["Fine‑Tune Segmentation Network"]
+      RawImages --> SAM --> SegOut --> FTSeg
+    end
+
+    %% === Object Detection ===
+    subgraph Object_Detection["Object Detection"]
+      direction TB
+      DINO["Grounding DINO"]
+      DetOut["Images & Labels"]
+      FTDet["Fine‑Tune Model\n(e.g., YOLO)"]
+      Deploy["Deployment"]
+      OpenVINO["OpenVINO\n(CPU)"]
+      TensorRT["TensorRT\n(GPU)"]
+      RawImages --> DINO --> DetOut --> FTDet --> Deploy
+      Deploy --> OpenVINO
+      Deploy --> TensorRT
+    end
+
+    %% === Styling ===
+    classDef raw  fill:#f0f4f8,stroke:#333,stroke-width:1px;
+    classDef cls  fill:#d6e9fe,stroke:#333,stroke-width:1px;
+    classDef seg  fill:#e8f6e8,stroke:#333,stroke-width:1px;
+    classDef det  fill:#fdebd0,stroke:#333,stroke-width:1px;
+
+    class RawImages raw;
+    class CLIP,ClassOut,FTClass cls;
+    class SAM,SegOut,FTSeg seg;
+    class DINO,DetOut,FTDet,Deploy,OpenVINO,TensorRT det;
 
 
 
