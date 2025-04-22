@@ -4,7 +4,7 @@
 
 
 
-### 🔍 Computer Vision Tasks Workflow
+### 🔍 Computer Vision Tasks Workflow (It's done for these three tasks in CV)
 
 <p align="center">
   <img src="mermaid-ai-diagram-2025-04-22-045453.png" alt="Computer Vision Tasks Workflow" style="max-width:100%; border-radius: 10px; width="1920" height="540" " />
