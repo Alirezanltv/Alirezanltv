@@ -1,6 +1,15 @@
 <p align="center">
-  <img src="white_shirt.jpeg" alt="Alireza Kanani Banner" style="max-width:100%; border-radius: 10px;" />
+  <img src="white_shirt.jpeg" alt="Alireza Kanani Banner" style="max-width:100%; border-radius: 10px; width="550" height="450" " />
 </p>
+
+
+
+
+
+
+
+
+
 
 <h1 align="center">👋 Hi, I’m Alireza Kanani</h1>
 
@@ -15,17 +24,21 @@
 ---
 
 ### 🔭 I’m currently working on
-- 🐦 **Lock_on_detected_object**:  
-  Stable bird tracker with YOLOv8 & custom BYTETracker → [Repo](https://github.com/Alirezanltv/Lock_on_detected_object)
+
 - 🤖 Deploying real‐time vision pipelines on NVIDIA Jetson (Nano, Xavier, Orin)
+- 🤖 Developing and deploying trading bot pipeline.
 
 ---
 
+- **Machine Learning Frameworks & Libraries**  TensorFlow, Keras, PyTorch, CUDA (GPU Programming),
+ONNX, TensorRT, OpenVINO, YOLO, GroundingDINO,
+Huggingface, GStreamer, DeepStream, GST-shark,
+OpenCV, Scikit-learn, SciPy, Mediapipe,
+Vision Transformer(ViT)
+- **Embedded Systems**: Jetson Nano, Jetson Xavier NX, Jetson Orin Nano
 ### 🌱 My Passions
-- **Computer Vision**: Object detection, tracking, super‑resolution  
-- **Deep Learning**: CNNs, GANs, Transformers, Autoencoders  
-- **Embedded Systems**: GStreamer, DeepStream SDK, CUDA  
-- **Signal & Image Processing**: Defect detection, OCR, remote sensing  
+- **Computer Vision**: Object detection & tracking, Unsupervised learning, Human robot interaction
+ 
 
 ---
 
@@ -64,9 +77,9 @@
 ---
 
 ### 📫 Let’s Connect
-- ✉️ kanani.kh.nasir@email.kntu.ac.ir  
+- ✉️ alirezakanani.project@gmail.com   
 - 🔗 [LinkedIn](https://www.linkedin.com/in/alireza-kanani-b7323b1bb)  
-- 🚀 Open to collaborations in AI, CV & embedded vision!
+- 🚀 Open to collaborations in AI, CV & embedded systems!
 
 ---
 
